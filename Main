@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Type the alphabet in order (hit enter between letters)");
+        System.out.println("Forward or Backwards (f/b)? ");
+        String response = scan.nextLine();
+
+        System.out.println(response);
+
+        if (response.equals("f"))
+        {//Choose between forward or backward
+            Forward forw = new Forward();
+            forw.game();
+        }
+        else if (response.equals("b"))
+        {
+            Backward back = new Backward();
+            back.game();
+        }
+        else
+        {
+            System.out.println("Please type in only f or b.");
+        }
+    }
+}
