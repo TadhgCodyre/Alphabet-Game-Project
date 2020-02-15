@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Backward
+{
+    private String[] AtoZ = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+
+    public Backward()
+    {
+        //No need for anything to be in the constructor
+    }
+
+    long startTime = System.nanoTime();     //Time it starts recorded
+    public void  game()
+    {
+        Scanner alpha = new Scanner(System.in);
+        System.out.println("To start, press 'z'");
+
+        for(int i = 25; i <= AtoZ.length-1; i--)
+        {   //loops down the array
+            String input = alpha.nextLine();
+            if(input.equals(AtoZ[i]))
+            {   //If input is correct, continue with game
+                if(i == 0)
+                {
+                    break;      //Stops going out of bounds of the array and stops
+                }               //the print statement repeating after a
+                System.out.println("Correct! Now type the letter "+AtoZ[i-1]);
+            }
+            else
+            {//If input is wrong, increment i
+                i++;
+            }
+        }
+        long endTime = System.nanoTime();   //Time it ends recorded
+        long seconds = (endTime - startTime)/1000000000;    //Subtract both, convert to seconds to find time
+        System.out.println("Congratulations, you just wasted "+seconds+"s of you life!");
+    }
+}
