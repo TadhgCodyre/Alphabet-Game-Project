@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Forward
+{
+    private String[] AtoZ = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+
+    public Forward()
+    {
+        //No need for anything to be in the constructor
+    }
+
+    long startTime = System.nanoTime();     //Time it starts recorded
+    public void  game()
+    {
+        Scanner alpha = new Scanner(System.in);
+        System.out.println("To start, press 'a'");
+
+        for(int i = 0; i < AtoZ.length-1; i++)
+        {//Unlike a for each loop, I can still use i as an int and still loop through the array
+            String input = alpha.nextLine();
+            if(input.equals(AtoZ[i]))
+            {   //If input is correct, continues on with game
+                if(i == 25)
+                {
+                    break;      //Prevents the print statement repeating after z
+                }
+                System.out.println("Correct! Now type the letter "+AtoZ[i+1]);
+            }
+            else
+            {
+                i--;        //If input is wrong, decrement i
+            }
+        }
+        long endTime = System.nanoTime();   //Time it ends recorded
+        long seconds = (endTime - startTime)/1000000000;    //Subtract both, convert to seconds to find time
+        System.out.println("Congratulations! You just wasted "+seconds+"s of your life");
+    }
+}
